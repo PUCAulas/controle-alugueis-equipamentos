@@ -1,3 +1,7 @@
+package br.pucminas.controlealuguel.entidade;
+
+import java.time.LocalDate;
+
 public class Aluguel {
 
     private Cliente cliente;
