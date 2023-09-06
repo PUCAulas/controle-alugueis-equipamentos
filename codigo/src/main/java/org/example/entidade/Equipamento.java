@@ -4,43 +4,52 @@ import main.java.org.example.enums.TipoEquipamento;
 
 public class Equipamento {
 	
-	private static Integer id;
-	private static String nome;
-	private static String descricao;
-	private static TipoEquipamento tipoEquipamento;
-	private static Double valorDiaria ;
+	private Integer id;
+	private String nome;
+	private String descricao;
+	private TipoEquipamento tipoEquipamento;
+	private Double valorDiaria ;
 
 	
-	public static Integer getId() {
+	public Equipamento(Integer id, String nome, String descricao, TipoEquipamento tipoEquipamento, Double valorDiaria) {
+		this.id = id;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.tipoEquipamento = tipoEquipamento;
+		this.valorDiaria = valorDiaria;
+	}
+	public Integer getId() {
 		return id;
 	}
-	public static void setId(Integer id) {
-		Equipamento.id = id;
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	public static String getNome() {
+	public String getNome() {
 		return nome;
 	}
-	public static void setNome(String nome) {
-		Equipamento.nome = nome;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
-	public static String getDescricao() {
+	public String getDescricao() {
 		return descricao;
 	}
-	public static void setDescricao(String descricao) {
-		Equipamento.descricao = descricao;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
-	public static TipoEquipamento getTipoEquipamento() {
+	public TipoEquipamento getTipoEquipamento() {
 		return tipoEquipamento;
 	}
-	public static void setTipoEquipamento(TipoEquipamento tipoEquipamento) {
-		Equipamento.tipoEquipamento = tipoEquipamento;
+	public void setTipoEquipamento(TipoEquipamento tipoEquipamento) {
+		this.tipoEquipamento = tipoEquipamento;
 	}
-	public static Double getValorDiaria() {
+	public Double getValorDiaria() {
 		return valorDiaria;
 	}
-	public static void setValorDiaria(Double valorDiaria) {
-		Equipamento.valorDiaria = valorDiaria;
+	public void setValorDiaria(Double valorDiaria) {
+		this.valorDiaria = valorDiaria;
 	}
+
+	
 	
 }
 
