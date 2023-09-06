@@ -1,4 +1,4 @@
-package main.java.org.example.entidade;
+package main.java.org.example.entities;
 
 import main.java.org.example.enums.TipoEquipamento;
 

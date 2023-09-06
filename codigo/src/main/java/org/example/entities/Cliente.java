@@ -1,4 +1,4 @@
-package main.java.org.example.entidade;
+package main.java.org.example.entities;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

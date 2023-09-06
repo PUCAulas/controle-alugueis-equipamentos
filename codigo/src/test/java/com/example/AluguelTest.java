@@ -7,9 +7,9 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import main.java.org.example.entidade.Aluguel;
-import main.java.org.example.entidade.Cliente;
-import main.java.org.example.entidade.Equipamento;
+import main.java.org.example.entities.Aluguel;
+import main.java.org.example.entities.Cliente;
+import main.java.org.example.entities.Equipamento;
 import main.java.org.example.enums.TipoEquipamento;
 
 class AluguelTest {
