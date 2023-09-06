@@ -1,6 +1,7 @@
 package main.java.org.example.entidade;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente {
@@ -13,12 +14,12 @@ public class Cliente {
 
 	}
 
-	public Cliente(String nome, LocalDate dataNascimento, Integer cpf, List<Aluguel> listaDeAlugueis) {
+	public Cliente(String nome, LocalDate dataNascimento, Integer cpf) {
 
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
 		this.cpf = cpf;
-		this.listaDeAlugueis = listaDeAlugueis;
+		this.listaDeAlugueis = new ArrayList<>();
 	}
 
 	public String getNome() {
