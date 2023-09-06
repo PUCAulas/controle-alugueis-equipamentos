@@ -7,14 +7,14 @@ import java.util.List;
 public class Cliente {
 	private String nome;
 	private LocalDate dataNascimento;
-	private Integer cpf;
+	private String cpf;
 	private List<Aluguel> listaDeAlugueis;
 
 	public Cliente() {
 
 	}
 
-	public Cliente(String nome, LocalDate dataNascimento, Integer cpf) {
+	public Cliente(String nome, LocalDate dataNascimento, String cpf) {
 
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
@@ -38,11 +38,11 @@ public class Cliente {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public Integer getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(Integer cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
