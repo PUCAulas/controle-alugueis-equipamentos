@@ -1,6 +1,6 @@
-package br.pucminas.controlealuguel.entidade;
+package main.java.org.example.entidade;
 
-import br.pucminas.controlealuguel.enums.TipoEquipamento;
+import main.java.org.example.enums.TipoEquipamento;
 
 public class Equipamento {
 	

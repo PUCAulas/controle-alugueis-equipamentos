@@ -1,4 +1,4 @@
-package br.pucminas.controlealuguel.entidade;
+package main.java.org.example.entidade;
 
 import static org.junit.jupiter.api.Assertions.*;
 

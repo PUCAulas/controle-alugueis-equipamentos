@@ -1,4 +1,4 @@
-package br.pucminas.controlealuguel.entidade;
+package main.java.org.example.entidade;
 
 import java.time.LocalDate;
 import java.util.List;
