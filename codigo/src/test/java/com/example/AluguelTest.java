@@ -20,29 +20,60 @@ class AluguelTest {
 	Equipamento equipamento02 = new Equipamento("Caminhao", "Caminhão Caçamba", TipoEquipamento.VEICULO, 129.65);
 	Aluguel aluguel = new Aluguel(cliente01, equipamento01, LocalDate.of(2023, 9, 1), LocalDate.of(2023, 9, 10));
 
+	/**
+	 * Caso de teste para o construtor da classe Aluguel com parâmetros.
+	 * Verifica se o construtor inicializa corretamente o atributo dataInicio.
+	 */
 	@Test
-	@DisplayName("Test - Aluguel (Cliente cliente, Equipamento equipamento, LocalDate dataInicio, LocalDate dataFim)")
-	public void aluguelTest() {
+	@DisplayName("Teste - Aluguel (Cliente cliente, Equipamento equipamento, LocalDate dataInicio, LocalDate dataFim)")
+	public void aluguelTeste() {
+		// Certifica-se de que dataInicio do aluguel é igual a 1 de setembro de 2023
 		assertEquals(LocalDate.of(2023, 9, 1), aluguel.getDataInicio());
+		// Certifica-se de que dataInicio não aluguel é igual a 10 de setembro de 2023
 		assertNotEquals(LocalDate.of(2023, 9, 10), aluguel.getDataInicio());
 	}
 
+	/**
+	 * Caso de teste para o método setEquipamento da classe Aluguel.
+	 * Verifica se o método setEquipamento atualiza corretamente o atributo equipamento.
+	 */
 	@Test
-	@DisplayName("Test - setEquipamento (Equipamento equipamento)")
-	public void setEquipamentoTest() {
+	@DisplayName("Teste - setEquipamento (Equipamento equipamento)")
+	public void setEquipamentoTeste() {
 		aluguel.setEquipamento(equipamento01);
 		aluguel.setEquipamento(equipamento02);
+		// Certifica-se de que o equipamento agora é igual a equipamento02
 		assertEquals(equipamento02, aluguel.getEquipamento());
+		// Certifica-se de que o equipamento não é igual a equipamento01
 		assertNotEquals(equipamento01, aluguel.getEquipamento());
 	}
 
+	/**
+	 * Caso de teste para o método getCliente da classe Aluguel.
+	 * Verifica se o método getCliente retorna corretamente o atributo cliente.
+	 */
 	@Test
-	@DisplayName("Test - getCliente ( )")
-	public void getClientTest() {
+	@DisplayName("Teste - getCliente()")
+	public void getClientTeste() {
 		aluguel.setCliente(cliente01);
+		// Certifica-se de que o cliente é igual a cliente01
 		assertEquals(cliente01, aluguel.getCliente());
 		aluguel.setCliente(cliente02);
+		// Certifica-se de que o cliente agora é não igual a cliente01
 		assertNotEquals(cliente01, aluguel.getCliente());
 	}
 
+	/**
+	 * Caso de teste para o método setDataInicio da classe Aluguel.
+	 * Verifica se o método getDataInicio retorna corretamente o atributo dataInicio.
+	 */
+	@Test
+	@DisplayName("Teste - setDataInicio(LocalDatal data)")
+	public void setDataInicioTeste() {
+		aluguel.setDataInicio(LocalDate.of(2010, 10, 8));
+		// Certifica-se de que dataInicio do aluguel é igual a 1 de setembro de 2023
+		assertEquals(LocalDate.of(2010, 10, 8), aluguel.getDataInicio());
+		// Certifica-se de que dataInicio não aluguel é igual a 10 de setembro de 2023
+		assertNotEquals(LocalDate.of(2023, 9, 10), aluguel.getDataInicio());
+	}
 }
