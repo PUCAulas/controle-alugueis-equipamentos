@@ -9,11 +9,14 @@ public class Aluguel {
     private LocalDate dataInicio;
     private LocalDate dataFim;
 
-    public Aluguel(Cliente cliente, Equipamento equipamento, LocalDate dataInicio, LocalDate dataFim) {
-        this.cliente = cliente;
-        this.equipamento = equipamento;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
+    public Aluguel(Cliente cliente, Equipamento equipamento, LocalDate dataInicio, LocalDate dataFim) throws Exception {
+        if (dataValida(dataInicio, dataFim)) {
+            this.cliente = cliente;
+            this.equipamento = equipamento;
+            this.dataInicio = dataInicio;
+            this.dataFim = dataFim;
+        } else
+            throw new Exception("Data invalida!");
     }
 
     public Aluguel() {
@@ -21,6 +24,10 @@ public class Aluguel {
         this.equipamento = null;
         this.dataInicio = null;
         this.dataFim = null;
+    }
+
+    public boolean dataValida(LocalDate dataInicio, LocalDate dataFim) {
+        return dataFim.isAfter(dataInicio);
     }
 
     public Cliente getCliente() {
