@@ -1,5 +1,7 @@
 package main.java.org.example.entities;
 
+import main.java.org.example.enums.StatusEquipamento;
+
 import java.time.LocalDate;
 
 public class Aluguel {
@@ -17,6 +19,7 @@ public class Aluguel {
             this.dataFim = dataFim;
         } else
             throw new Exception("Data invalida!");
+        verificarDisponiEquipamento(equipamento);
     }
 
     public Aluguel() {
@@ -61,4 +64,20 @@ public class Aluguel {
     public void setDataFim(LocalDate dataFim) {
         this.dataFim = dataFim;
     }
+
+    //Caso o equipamento já esteja alugado pelo cliente (verificar lista) retorne uma exceção
+
+
+
+
+    public void verificarDisponiEquipamento(Equipamento equipamento) throws Exception{
+        if(equipamento.getStatusEquipamento() != StatusEquipamento.DISPONIVEL) {
+            throw new Exception("O equipamento não está disponível para empréstimo");
+        }
+    }
+
+
+
+
+
 }
