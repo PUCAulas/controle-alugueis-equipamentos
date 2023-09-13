@@ -20,6 +20,11 @@ class AluguelTest {
     Equipamento equipamento02;
     Aluguel aluguel;
 
+    /**
+     * Construtores padroes usados nos testes
+     *
+     * @throws Exception Caso o construtor seja invalido, lanca excecao
+     */
     @BeforeEach
     public void setUp() throws Exception {
         cliente01 = new Cliente("Jose", LocalDate.of(1980, 10, 8), "12345678955");
@@ -29,6 +34,11 @@ class AluguelTest {
         aluguel = new Aluguel(cliente01, equipamento01, LocalDate.of(2023, 9, 1), LocalDate.of(2023, 10, 12));
     }
 
+    /**
+     * Verifica se a o periodo inserido (dataInicio e dataFim) e valido, ou seja, se a dataFim e maior que a dataInicio
+     *
+     * @throws Exception Caso a dataFim nao seja maior que a dataInicio, lanca excecao
+     */
     @Test
     @DisplayName("Teste - dataValida()")
     public void dataValidaTeste() throws Exception {
