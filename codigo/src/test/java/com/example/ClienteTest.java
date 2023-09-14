@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,7 +27,7 @@ class ClienteTest {
         cliente02 = new Cliente("Maria", LocalDate.of(1970, 9, 1), "98765432122");
         equipamento02 = new Equipamento("Caminhao", "Caminhão Caçamba", TipoEquipamento.VEICULO, 129.65);
         equipamento01 = new Equipamento("Martelo", "Martelo Tipo Pena 800gr Worker", TipoEquipamento.FERRAMENTA, 5.32);
-        aluguel = new Aluguel(cliente01, equipamento01, LocalDate.of(2023, 9, 1), LocalDate.of(2023, 10, 12));
+        aluguel = new Aluguel(cliente01, equipamento01, "01/09/2023", "12/10/2023");
     }
 
     @Test
@@ -61,7 +62,7 @@ class ClienteTest {
     @Test
     @DisplayName("Teste - ListaDeAlugueisNaoNulo()")
     public void ListaDeAlugueisNaoNulo() {
-    	cliente02.getListaDeAlugueis.add(aluguel);
+    	cliente02.getListaDeAlugueis().add(aluguel);
     	// Certifica-se de que a lista contém alugueis
     	assertNotNull(cliente02.getListaDeAlugueis());
     }

@@ -20,6 +20,7 @@ public class Equipamento {
 		this.descricao = descricao;
 		this.tipoEquipamento = tipoEquipamento;
 		this.valorDiaria = valorDiaria;
+		this.statusEquipamento = StatusEquipamento.DISPONIVEL;
 	}
 
 	public Integer getId() {

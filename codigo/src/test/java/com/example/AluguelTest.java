@@ -31,7 +31,7 @@ class AluguelTest {
         cliente02 = new Cliente("Maria", LocalDate.of(1970, 9, 1), "98765432122");
         equipamento02 = new Equipamento("Caminhao", "Caminhão Caçamba", TipoEquipamento.VEICULO, 129.65);
         equipamento01 = new Equipamento("Martelo", "Martelo Tipo Pena 800gr Worker", TipoEquipamento.FERRAMENTA, 5.32);
-        aluguel = new Aluguel(cliente01, equipamento01, LocalDate.of(2023, 9, 1), LocalDate.of(2023, 10, 12));
+        aluguel = new Aluguel(cliente01, equipamento01,"01/09/2023", "12/10/2023");
     }
 
     /**
@@ -44,12 +44,12 @@ class AluguelTest {
     public void dataValidaTeste() throws Exception {
         // Certifica-se de que dataInicio não é inferior à dataFim
         assertThrows(Exception.class, () -> {
-            aluguel = new Aluguel(cliente01, equipamento01, LocalDate.of(2023, 10, 1), LocalDate.of(2023, 9, 10));
+            aluguel = new Aluguel(cliente01, equipamento01, "12/10/2023", "01/09/2023");
         });
 
         // Certifica-se de que dataInicio é inferior à dataFim
         assertDoesNotThrow(() -> {
-            aluguel = new Aluguel(cliente01, equipamento01, LocalDate.of(2023, 9, 1), LocalDate.of(2023, 9, 10));
+            aluguel = new Aluguel(cliente01, equipamento01,"01/09/2023", "12/10/2023");
         });
     }
 
@@ -109,4 +109,23 @@ class AluguelTest {
         // Certifica-se de que dataInicio não aluguel é igual a 10 de setembro de 2023
         assertNotEquals(LocalDate.of(2023, 9, 10), aluguel.getDataInicio());
     }
+
+
+    @Test
+    @DisplayName("Teste - valorTotal()")
+    public void testValorTotal() {
+        // Verifique se o valor total é calculado corretamente
+        assertEquals(58.52, aluguel.valorTotal(), 0.01);
+    }
+
+    @Test
+    @DisplayName("Teste - totalEmDia()")
+    public void testTotalEmDia() {
+        // Verifique se o método totalEmDia calcula o número de dias corretamente
+        LocalDate dataInicio = LocalDate.of(2023, 9, 1);
+        LocalDate dataFim = LocalDate.of(2023, 9, 5);
+        assertEquals(4, aluguel.totalEmDia(dataInicio, dataFim));
+    }
+
+
 }
