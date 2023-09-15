@@ -89,7 +89,15 @@ public class Aluguel {
         }
     }
 
-
+    @Override
+    public String toString() {
+        return
+                "\n Cliente: " + cliente.getNome() +
+                "\n Equipamento: " + equipamento.getNome() +
+                "\n Data de inicio: " + dataInicio.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) +
+                "\n Data de fim: " + dataFim.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) +
+                "\n Valor Total: R$" + String.format("%.2f", valorTotal());
+    }
 
 
 }

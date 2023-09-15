@@ -27,7 +27,8 @@ public class Main {
             System.out.println("4. Listar Clientes");
             System.out.println("5. Listar Equipamentos");
             System.out.println("6. Listar Aluguéis");
-            System.out.println("7. Sair");
+            System.out.println("7. Pesquisar aluguéis de clientes");
+            System.out.println("8. Sair");
             System.out.print("Escolha uma opção: ");
 
             int opcao = scanner.nextInt();
@@ -57,8 +58,12 @@ public class Main {
                 case 6:
                     listarAlugueis(alugueis);
                     break;
-
+                    
                 case 7:
+                	pesquisarAlugueisDeClientes(clientes, scanner);
+                    break;
+
+                case 8:
                     System.out.println("Saindo...");
                     System.exit(0);
                     break;
@@ -79,9 +84,14 @@ public class Main {
         System.out.print("CPF: ");
         String cpf = scanner.nextLine();
 
-        Cliente cliente = new Cliente(nomeCliente, dataNascimento, cpf);
-        clientes.add(cliente);
-        System.out.println("Cliente cadastrado com sucesso!");
+        Cliente cliente;
+		try {
+			cliente = new Cliente(nomeCliente, dataNascimento, cpf);
+			clientes.add(cliente);
+	        System.out.println("Cliente cadastrado com sucesso!");
+		} catch (Exception e) {
+			System.out.println("Erro ao cadastrar cliente: " + e.getMessage());
+		}
     }
 
     private static void cadastrarEquipamento(List<Equipamento> equipamentos, Scanner scanner) {
@@ -143,6 +153,8 @@ public class Main {
         try {
             Aluguel aluguel = new Aluguel(clienteAluguel, equipamentoAluguel, dataInicioStr, dataFimStr);
             alugueis.add(aluguel);
+            clienteAluguel.getListaDeAlugueis().add(aluguel);
+            
             equipamentoAluguel.setStatusEquipamento(StatusEquipamento.Em_USO);
             System.out.println("Equipamento alugado com sucesso!");
         } catch (Exception e) {
@@ -173,7 +185,6 @@ public class Main {
         }
     }
 
-
     private static void listarAlugueis(List<Aluguel> alugueis) {
         System.out.println("\nLista de Aluguéis:");
         for (Aluguel a : alugueis) {
@@ -185,5 +196,14 @@ public class Main {
             System.out.println();
         }
     }
-
+    
+    private static void pesquisarAlugueisDeClientes(List<Cliente> clientes, Scanner scanner) {
+    	System.out.println("\nDigite o CPF do cliente para pesquisa:");
+    	String cpf = scanner.nextLine();
+    	for (Cliente c : clientes) {
+    		if(cpf.equals(c.getCpf())) {
+    			c.imprimirLista();
+    		}
+    	}   	
+    }
 }
