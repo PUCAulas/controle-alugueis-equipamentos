@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Aluguel {
 
-    public static DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    public static final DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private Cliente cliente;
     private Equipamento equipamento;
     private LocalDate dataInicio;
